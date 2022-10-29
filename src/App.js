@@ -1,4 +1,5 @@
 import './App.css';
+import TiffinAvailable from './components/TiffinAvailable/TiffinAvailable';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import OrderFood from './components/OrderFood/OrderFood';
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Home />
       <OrderFood />
+      <TiffinAvailable />
     </div>
   );
 }

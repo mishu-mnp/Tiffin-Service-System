@@ -54,10 +54,11 @@ export const homeStyles = makeStyles({
 
 export const orderFoodStyles = makeStyles({
     order_container: {
-        border: '2px solid red',
+        // border: '2px solid red',
         height: '50vh'
     },
     title: {
+        marginTop: '2rem',
         textAlign: 'center',
         fontSize: '2rem !important'
     },
@@ -104,5 +105,56 @@ export const orderFoodStyles = makeStyles({
         color: '#164184',
         fontSize: '15px',
         marginLeft: '5px',
+    }
+})
+
+export const tiffinAvailableStyles = makeStyles({
+    TiffinAvailable: {
+        height: '80vh'
+    },
+    title: {
+        textAlign: 'center',
+        fontSize: '2rem !important'
+    },
+    tiffin_container: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        padding: '2rem',
+        flexWrap: 'wrap'
+    },
+    tiffin: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        padding: '10px',
+        backgroundColor: 'bisque',
+        borderTopLeftRadius: '35px',
+        borderBottomRightRadius: '35px',
+        width: '250px',
+        height: '300px',
+        margin: '1rem'
+    },
+    tiffinDesc: {
+        fontSize: '20px'
+    },
+    tiffinPriceBox: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '5px'
+    },
+    tiffinPrice: {
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
+        color: 'orangered',
+        marginRight: '30px'
+    },
+    tiffinImg: {
+        height: '150px',
+        width: '200px',
+        borderRadius: '50%',
     }
 })
