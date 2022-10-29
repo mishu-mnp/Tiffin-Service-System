@@ -51,3 +51,58 @@ export const homeStyles = makeStyles({
     },
 
 })
+
+export const orderFoodStyles = makeStyles({
+    order_container: {
+        border: '2px solid red',
+        height: '50vh'
+    },
+    title: {
+        textAlign: 'center',
+        fontSize: '2rem !important'
+    },
+    subtitle: {
+        textAlign: 'center',
+        fontSize: '1.2rem !important',
+        color: '#ee4e4e'
+    },
+    steps_container: {
+        // border: '2px solid purple',
+        display: 'flex',
+        justifyContent: 'space-around'
+    },
+    steps: {
+
+    },
+    upper: {
+        height: '75px',
+        width: '150px',
+        backgroundColor: '#37ca37',
+        borderTopLeftRadius: '50%',
+        borderTopRightRadius: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    lower: {
+        height: '75px',
+        width: '150px',
+        backgroundColor: 'grey',
+        borderBottomLeftRadius: '50%',
+        borderBottomRightRadius: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column'
+    },
+    mainText: {
+        fontWeight: 'bold',
+        color: 'white',
+        fontSize: '1.2rem',
+    },
+    moreText: {
+        color: '#164184',
+        fontSize: '15px',
+        marginLeft: '5px',
+    }
+})

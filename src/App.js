@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import OrderFood from './components/OrderFood/OrderFood';
 // import { useStyles } from './components/style'
 
 
@@ -13,6 +14,7 @@ function App() {
       {/* <h1 className={classes.head}>Tiffin Service</h1> */}
       <Header />
       <Home />
+      <OrderFood />
     </div>
   );
 }
