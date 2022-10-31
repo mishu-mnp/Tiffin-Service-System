@@ -1,9 +1,9 @@
 import React from 'react'
 import { tiffinAvailableStyles } from '../style'
 import { tiffinData } from '../../static/data';
-import { Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import { CurrencyRupee, Visibility } from '@mui/icons-material';
-import { Typography } from '@material-ui/core';
+
 
 
 const TiffinAvailable = () => {

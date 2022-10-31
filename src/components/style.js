@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core"
+import { makeStyles } from "@mui/styles"
 
 export const useStyles = makeStyles({
     head: {
@@ -13,8 +13,9 @@ export const headerStyles = makeStyles({
         display: 'flex',
         justifyContent: 'space-between'
     },
-    nav: {
-
+    link: {
+        textDecoration: 'none !important',
+        color: 'black !important'
 
     },
     nav_menu: {
@@ -156,5 +157,11 @@ export const tiffinAvailableStyles = makeStyles({
         height: '150px',
         width: '200px',
         borderRadius: '50%',
+    }
+})
+
+export const registerStyles = makeStyles({
+    registerBox: {
+        border: '2x solid purple'
     }
 })

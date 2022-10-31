@@ -1,7 +1,7 @@
-import { Typography } from '@material-ui/core';
 import React from 'react'
 import { orderFoodStyles } from '../style'
 import { stepsData } from '../../static/data';
+import { Typography } from '@mui/material';
 
 const OrderFood = () => {
     const classes = orderFoodStyles();
