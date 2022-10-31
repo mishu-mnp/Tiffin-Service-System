@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
+import Tiffin from './components/Tiffin/Tiffin';
 
 
 
@@ -38,6 +39,11 @@ function App() {
           <Route path='/login' element={<>
             <Header />
             <Login />
+          </>}>
+          </Route>
+          <Route path='/view' element={<>
+            <Header />
+            <Tiffin />
           </>}>
           </Route>
         </Routes>

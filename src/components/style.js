@@ -9,13 +9,13 @@ export const useStyles = makeStyles({
 
 export const headerStyles = makeStyles({
     Header: {
-        backgroundColor: 'grey',
+        backgroundColor: '#232f3e',
         display: 'flex',
         justifyContent: 'space-between'
     },
     link: {
         textDecoration: 'none !important',
-        color: 'black !important'
+        color: '#fff !important'
 
     },
     nav_menu: {
@@ -169,5 +169,72 @@ export const registerStyles = makeStyles({
 export const loginStyles = makeStyles({
     login: {
 
+    }
+})
+
+export const tiffinStyles = makeStyles({
+    tiffin: {
+        border: '2px solid purple',
+        height: '70vh',
+        // width: '99%',
+        margin: '1rem',
+        padding: '1rem',
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+
+    },
+    left: {
+        border: '2px solid orange',
+        height: '90%',
+        width: '40%'
+    },
+    right: {
+        border: '2px solid orange',
+        height: '90%',
+        width: '48%',
+        padding: '0 10px',
+
+
+
+    },
+    tiffinImg: {
+        height: '100%',
+        width: '100%'
+    },
+    tiffinTitle: {
+        fontSize: '20px'
+    },
+    tiffinPriceBox: {
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'center',
+        marginBottom: '5px'
+    },
+    tiffinPrice: {
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
+        color: 'orangered',
+    },
+    tiffinQuantity: {
+        border: '1.8px solid #F95A3B',
+        backgroundColor: 'bisque',
+        borderRadius: '18px',
+        width: '120px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '12px'
+    },
+    tiffinBtn: {
+        marginTop: '1rem'
+    },
+    addToCart: {
+        backgroundColor: "#ff9f00 !important",
+        borderRadius: '15px !important'
+    },
+    orderNow: {
+        backgroundColor: "#fb641b !important",
+        borderRadius: '15px !important'
     }
 })

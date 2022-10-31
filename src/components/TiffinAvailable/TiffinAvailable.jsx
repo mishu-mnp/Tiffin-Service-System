@@ -21,7 +21,7 @@ const TiffinAvailable = () => {
                         <Typography className={classes.tiffinPriceBox} component='div'>
                             <CurrencyRupee />
                             <span className={classes.tiffinPrice}>{tiffin.price}</span>
-                            <Button variant="contained" startIcon={<Visibility />}>View</Button>
+                            <Button variant="contained" startIcon={<Visibility />} href='/view'>View</Button>
                         </Typography>
                     </div>
                 ))}
