@@ -165,3 +165,9 @@ export const registerStyles = makeStyles({
         border: '2x solid purple'
     }
 })
+
+export const loginStyles = makeStyles({
+    login: {
+
+    }
+})

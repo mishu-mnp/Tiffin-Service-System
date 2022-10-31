@@ -9,6 +9,7 @@ import {
   Route
 } from "react-router-dom";
 import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 
 
@@ -33,7 +34,11 @@ function App() {
             <Header />
             <Register />
           </>}>
-
+          </Route>
+          <Route path='/login' element={<>
+            <Header />
+            <Login />
+          </>}>
           </Route>
         </Routes>
       </Router>
