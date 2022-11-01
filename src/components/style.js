@@ -174,8 +174,8 @@ export const loginStyles = makeStyles({
 
 export const tiffinStyles = makeStyles({
     tiffin: {
-        border: '2px solid purple',
-        height: '70vh',
+        // border: '2px solid purple',
+        height: '90vh',
         // width: '99%',
         margin: '1rem',
         padding: '1rem',
@@ -185,18 +185,15 @@ export const tiffinStyles = makeStyles({
 
     },
     left: {
-        border: '2px solid orange',
+        // border: '2px solid orange',
         height: '90%',
         width: '40%'
     },
     right: {
-        border: '2px solid orange',
+        // border: '2px solid orange',
         height: '90%',
         width: '48%',
-        padding: '0 10px',
-
-
-
+        padding: '0 10px'
     },
     tiffinImg: {
         height: '100%',
@@ -236,5 +233,8 @@ export const tiffinStyles = makeStyles({
     orderNow: {
         backgroundColor: "#fb641b !important",
         borderRadius: '15px !important'
+    },
+    addressBox: {
+        margin: '1rem 0'
     }
 })

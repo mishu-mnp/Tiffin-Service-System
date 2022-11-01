@@ -13,7 +13,8 @@ const Register = () => {
         name: "",
         email: "",
         password: "",
-        contact: ""
+        contact: "",
+        address: ""
     }
 
     const [userData, setUserData] = useState(data);
@@ -30,7 +31,7 @@ const Register = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs" sx={{ padding: '2rem' }}>
                 <CssBaseline />
                 <Box
                     sx={{
@@ -65,11 +66,22 @@ const Register = () => {
                                     required
                                     fullWidth
                                     id="email"
-                                    label="Email Address"
+                                    label="Email"
                                     name="email"
                                     value={userData.email}
                                     onChange={handleOnchange}
                                     autoComplete="email"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="address"
+                                    label="Address"
+                                    name="address"
+                                    value={userData.address}
+                                    onChange={handleOnchange}
                                 />
                             </Grid>
                             <Grid item xs={12}>

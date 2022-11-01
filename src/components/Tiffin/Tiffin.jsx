@@ -1,7 +1,7 @@
 import React from 'react';
 import { tiffinStyles } from '../style';
-import tiffin2 from '../../assets/tiffin2.jpg'
-import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Stack, Typography } from '@mui/material';
+// import tiffin2 from '../../assets/tiffin2.jpg'
+import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Stack, TextField, Typography } from '@mui/material';
 import { AddCircleOutline, CurrencyRupee, FlashOn, RemoveCircleOutline, ShoppingCart } from '@mui/icons-material';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -22,7 +22,7 @@ const Tiffin = () => {
 
 
     // Days Count 
-    const [daysCount, setDaysCount] = useState('1 week');
+    const [daysCount, setDaysCount] = useState('');
 
     function handleDaysChange(event) {
         if (event.target.value === daysCount) {
@@ -48,7 +48,7 @@ const Tiffin = () => {
     };
 
     const { lunch, dinner } = timeShift;
-
+    console.log("Timeshift >>> ", timeShift)
 
 
     // Tiffin Quantity
@@ -81,6 +81,31 @@ const Tiffin = () => {
     useEffect(() => {
         getTiffinData();
     }, []);
+
+
+    // address 
+    const [address, setAddress] = useState("");
+
+    const handleOnchange = (e) => {
+        setAddress(e.target.value)
+    }
+
+    // order now button
+    const [orderData, setOrderData] = useState({});
+    const orderNow = () => {
+        setOrderData({
+            tiffinId: id,
+            desc: tfData.desc,
+            price: tfData.price,
+            addr: address,
+            qty: quantity,
+            shift: timeShift,
+            fixed: checked,
+            days: daysCount
+        })
+    }
+
+    console.log(orderData);
 
     return (
         <div className='Tiffin'>
@@ -153,11 +178,22 @@ const Tiffin = () => {
                         </IconButton>
                     </div>
 
+                    {/* address textfield */}
+                    <div className={classes.addressBox}>
+                        <TextField
+                            id="address"
+                            label="Address"
+                            multiline
+                            rows={4}
+                            value={address}
+                            onChange={handleOnchange}
+                        />
+                    </div>
                     <Stack direction="row" spacing={2} className={classes.tiffinBtn}>
                         <Button variant="contained" className={classes.addToCart} startIcon={<ShoppingCart />} >
                             Add to Cart
                         </Button>
-                        <Button variant="contained" className={classes.orderNow} startIcon={<FlashOn />}>
+                        <Button variant="contained" className={classes.orderNow} startIcon={<FlashOn />} onClick={orderNow}>
                             Order Now
                         </Button>
                     </Stack>
