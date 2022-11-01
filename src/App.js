@@ -41,7 +41,7 @@ function App() {
             <Login />
           </>}>
           </Route>
-          <Route path='/view' element={<>
+          <Route exact path='/view/:id' element={<>
             <Header />
             <Tiffin />
           </>}>

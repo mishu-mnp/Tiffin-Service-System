@@ -41,49 +41,49 @@ export const stepsData = [
 
 export const tiffinData = [
     {
-        id: '#tf1',
+        id: 'tf1',
         img: tiffin1,
         desc: 'Veg Matar Alu Sabji Dal Fry Jeera Rice',
         price: 80
     },
     {
-        id: '#tf2',
+        id: 'tf2',
         img: tiffin2,
         desc: 'Veg Cauliflower Alu Sabji Dal Fry Jeera Rice',
         price: 100
     },
     {
-        id: '#tf3',
+        id: 'tf3',
         img: tiffin3,
         desc: 'Veg Paneer Sabji Dal Fry Jeera Rice',
         price: 120
     },
     {
-        id: '#tf4',
+        id: 'tf4',
         img: tiffin4,
         desc: 'Veg Bhindi Masala Sabji Dal Fry Jeera Rice',
         price: 90
     },
     {
-        id: '#tf5',
+        id: 'tf5',
         img: tiffin5,
         desc: 'Veg Capsicum Corn Mix Sabji Dal Fry Jeera Rice',
         price: 110
     },
     {
-        id: '#tf6',
+        id: 'tf6',
         img: tiffin6,
         desc: 'Veg Doodhi Chana Masala Sabji Dal Fry Jeera Rice',
         price: 80
     },
     {
-        id: '#tf7',
+        id: 'tf7',
         img: tiffin7,
         desc: 'Veg Karela Sabji Kadhi Rice',
         price: 90
     },
     {
-        id: '#tf8',
+        id: 'tf8',
         img: tiffin8,
         desc: 'Veg Ringad Masala Sabji Dal Fry Jeera Rice',
         price: 100

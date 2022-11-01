@@ -4,11 +4,15 @@ import tiffin2 from '../../assets/tiffin2.jpg'
 import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, Radio, RadioGroup, Stack, Typography } from '@mui/material';
 import { AddCircleOutline, CurrencyRupee, FlashOn, RemoveCircleOutline, ShoppingCart } from '@mui/icons-material';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { tiffinData } from '../../static/data';
+import { useEffect } from 'react';
 
 const Tiffin = () => {
     const classes = tiffinStyles();
 
-
+    const { id } = useParams();
+    console.log("Tiffin ID >>> ", id)
     // Fixed Tiffin
     const [checked, setChecked] = useState(false);
 
@@ -62,19 +66,35 @@ const Tiffin = () => {
         }
     }
 
+
+    const [tfData, setTfData] = useState({
+        id: "",
+        img: "",
+        desc: "",
+        price: ""
+    });
+
+    const getTiffinData = () => {
+        setTfData(tiffinData.find(tf => tf.id === id));
+    }
+
+    useEffect(() => {
+        getTiffinData();
+    }, []);
+
     return (
         <div className='Tiffin'>
             <div className={classes.tiffin}>
                 {/* Left for tiffin image */}
                 <div className={classes.left}>
-                    <img src={tiffin2} alt="tiffin" className={classes.tiffinImg} />
+                    <img src={tfData.img} alt="tiffin" className={classes.tiffinImg} />
                 </div>
                 {/* Right for tiffin details */}
                 <div className={classes.right}>
-                    <h2 className={classes.tiffinTitle}>Veg Cauliflower Alu Sabji Dal Fry Jeera Rice</h2>
+                    <h2 className={classes.tiffinTitle}>{tfData.desc} -- {tfData.id}</h2>
                     <Typography className={classes.tiffinPriceBox} component='div'>
                         <CurrencyRupee />
-                        <span className={classes.tiffinPrice}>{100}</span>
+                        <span className={classes.tiffinPrice}>{tfData.price}</span>
                     </Typography>
 
                     <FormGroup>

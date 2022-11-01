@@ -3,6 +3,7 @@ import { tiffinAvailableStyles } from '../style'
 import { tiffinData } from '../../static/data';
 import { Typography, Button } from '@mui/material';
 import { CurrencyRupee, Visibility } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 
@@ -21,7 +22,10 @@ const TiffinAvailable = () => {
                         <Typography className={classes.tiffinPriceBox} component='div'>
                             <CurrencyRupee />
                             <span className={classes.tiffinPrice}>{tiffin.price}</span>
-                            <Button variant="contained" startIcon={<Visibility />} href='/view'>View</Button>
+                            {/* <Button variant="contained" startIcon={<Visibility />} href={`/view?${tiffin.id}`}>View</Button> */}
+                            <li>
+                                <Link to={`/view/${tiffin.id}`}>View</Link>
+                            </li>
                         </Typography>
                     </div>
                 ))}
