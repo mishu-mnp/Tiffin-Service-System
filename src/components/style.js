@@ -1,17 +1,14 @@
 import { makeStyles } from "@mui/styles"
 
-export const useStyles = makeStyles({
-    head: {
-        color: 'green'
-    }
-})
-
-
 export const headerStyles = makeStyles({
     Header: {
         backgroundColor: '#232f3e',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        position: 'fixed',
+        width: '100%',
+        zIndex: '1000',
+        top: 0
     },
     link: {
         textDecoration: 'none !important',
@@ -177,7 +174,7 @@ export const tiffinStyles = makeStyles({
         // border: '2px solid purple',
         height: '90vh',
         // width: '99%',
-        margin: '1rem',
+        margin: '5rem 0 1rem 0',
         padding: '1rem',
         display: 'flex',
         justifyContent: 'space-evenly',
@@ -243,7 +240,7 @@ export const tiffinStyles = makeStyles({
 export const myOrderStyle = makeStyles({
     orderContainer: {
         border: '2px solid purple',
-        margin: '1rem 0',
+        margin: '6rem 0 1rem 0',
         padding: '1rem'
     },
     title: {
@@ -251,15 +248,15 @@ export const myOrderStyle = makeStyles({
     },
     tiffinOrder: {
         border: '2px solid red',
-        width: '450px',
-        height: '150px'
+        width: '600px',
+        height: '200px'
     }
 })
 
 export const cartStyle = makeStyles({
     cartContainer: {
         border: '2px solid purple',
-        margin: '1rem 0',
+        margin: '6rem 0 1rem 0',
         padding: '1rem'
     },
     title: {
@@ -268,6 +265,17 @@ export const cartStyle = makeStyles({
     tiffinCart: {
         border: '2px solid red',
         width: '600px',
-        height: '200px'
-    }
+        // height: '200px'
+    },
+    tiffinBtn: {
+        marginTop: '1rem'
+    },
+    addToCart: {
+        backgroundColor: "#ff9f00 !important",
+        borderRadius: '15px !important'
+    },
+    orderNow: {
+        backgroundColor: "#fb641b !important",
+        borderRadius: '15px !important'
+    },
 })

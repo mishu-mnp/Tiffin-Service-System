@@ -1,8 +1,10 @@
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { Container } from '@mui/system'
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import tiffin8 from '../../assets/tiffin8.jpg';
+import { removeFromCart } from '../../redux/cartSlice';
+import { addToOrder } from '../../redux/orderSlice';
 import { cartStyle } from '../style'
 
 const Cart = () => {
@@ -11,15 +13,28 @@ const Cart = () => {
     const tiffins = useSelector((state) => state.cart.tiffins);
     console.log("Tiffins >>> ", tiffins);
 
+    // remove item from cart
+    const dispatch = useDispatch();
+    const removeItem = (id) => {
+        dispatch(removeFromCart(id))
+        console.log('ID >>> ', id)
+    }
 
+    const orderTiffin = (id) => {
+        let tfData = tiffins.find(tf => tf.tiffinId === id)
+        dispatch(addToOrder(tfData))
+        removeItem(id);
+        console.log("TF Data >>> ", tfData)
+        console.log("ID >>> ", id)
+    }
     return (
         <div className='cart'>
             <Container className={classes.cartContainer}>
 
                 <h2 className={classes.title}>Your Cart</h2>
-                {tiffins.map(tiffin => {
+                {tiffins.map((tiffin, i) => {
                     return (
-                        <Card key={tiffin.id} Card sx={{ display: 'flex', mb: '5px' }} className={classes.tiffinCart}>
+                        <Card key={i} Card sx={{ display: 'flex', mb: '5px' }} className={classes.tiffinCart}>
                             <CardMedia
                                 component="img"
                                 sx={{ width: 300 }}
@@ -47,6 +62,14 @@ const Cart = () => {
                                     <Typography variant="subtitle1" color="text.secondary" component="p">
                                         Price: {tiffin.price}
                                     </Typography>
+                                    <Stack direction="row" spacing={2} className={classes.tiffinBtn}>
+                                        <Button variant="contained" className={classes.addToCart} onClick={() => removeItem(tiffin.tiffinId)}>
+                                            Remove
+                                        </Button>
+                                        <Button variant="contained" className={classes.orderNow} onClick={() => orderTiffin(tiffin.tiffinId)}>
+                                            Order Now
+                                        </Button>
+                                    </Stack>
                                 </CardContent>
                             </Box>
                         </Card>)

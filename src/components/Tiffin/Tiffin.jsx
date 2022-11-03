@@ -9,6 +9,7 @@ import { tiffinData } from '../../static/data';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
+import { addToOrder } from '../../redux/orderSlice';
 
 const Tiffin = () => {
     const classes = tiffinStyles();
@@ -97,7 +98,7 @@ const Tiffin = () => {
     const [orderData, setOrderData] = useState({});
 
     const orderNow = () => {
-        setOrderData({
+        let data = {
             tiffinId: id,
             desc: tfData.desc,
             price: tfData.price,
@@ -107,15 +108,17 @@ const Tiffin = () => {
             shift: timeShift,
             fixed: checked,
             days: daysCount
-        });
+        }
 
-        // dispatch(addToCart(orderData))
+        setOrderData(data);
+
+        dispatch(addToOrder(data))
     }
 
     console.log(orderData);
 
     const addCart = () => {
-        setOrderData({
+        let cartData = {
             tiffinId: id,
             desc: tfData.desc,
             price: tfData.price,
@@ -125,19 +128,11 @@ const Tiffin = () => {
             fixed: checked,
             days: daysCount,
             img: tfData.img,
-        })
+        }
 
-        dispatch(addToCart({
-            tiffinId: id,
-            desc: tfData.desc,
-            price: tfData.price,
-            addr: address,
-            qty: quantity,
-            shift: timeShift,
-            fixed: checked,
-            days: daysCount,
-            img: tfData.img,
-        }))
+        setOrderData(cartData)
+
+        dispatch(addToCart(cartData))
     }
 
     return (

@@ -28,7 +28,7 @@ const Login = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs" sx={{ padding: '2rem' }}>
                 <CssBaseline />
                 <Box
                     sx={{

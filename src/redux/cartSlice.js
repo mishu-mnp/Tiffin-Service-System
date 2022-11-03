@@ -20,13 +20,17 @@ const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            console.log(action.payload)
             state.tiffins = [...state.tiffins, action.payload]
+        },
+        removeFromCart: (state, action) => {
+            let newTiffins = state.tiffins.filter(tf => tf.tiffinId !== action.payload)
+            state.tiffins = newTiffins
+
         }
     }
 })
 
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
