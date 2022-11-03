@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { tiffinData } from '../../static/data';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartSlice';
 
 const Tiffin = () => {
     const classes = tiffinStyles();
@@ -91,8 +93,28 @@ const Tiffin = () => {
     }
 
     // order now button
+    const dispatch = useDispatch();
     const [orderData, setOrderData] = useState({});
+
     const orderNow = () => {
+        setOrderData({
+            tiffinId: id,
+            desc: tfData.desc,
+            price: tfData.price,
+            img: tfData.img,
+            addr: address,
+            qty: quantity,
+            shift: timeShift,
+            fixed: checked,
+            days: daysCount
+        });
+
+        // dispatch(addToCart(orderData))
+    }
+
+    console.log(orderData);
+
+    const addCart = () => {
         setOrderData({
             tiffinId: id,
             desc: tfData.desc,
@@ -101,11 +123,22 @@ const Tiffin = () => {
             qty: quantity,
             shift: timeShift,
             fixed: checked,
-            days: daysCount
+            days: daysCount,
+            img: tfData.img,
         })
-    }
 
-    console.log(orderData);
+        dispatch(addToCart({
+            tiffinId: id,
+            desc: tfData.desc,
+            price: tfData.price,
+            addr: address,
+            qty: quantity,
+            shift: timeShift,
+            fixed: checked,
+            days: daysCount,
+            img: tfData.img,
+        }))
+    }
 
     return (
         <div className='Tiffin'>
@@ -190,7 +223,7 @@ const Tiffin = () => {
                         />
                     </div>
                     <Stack direction="row" spacing={2} className={classes.tiffinBtn}>
-                        <Button variant="contained" className={classes.addToCart} startIcon={<ShoppingCart />} >
+                        <Button variant="contained" className={classes.addToCart} startIcon={<ShoppingCart />} onClick={addCart}>
                             Add to Cart
                         </Button>
                         <Button variant="contained" className={classes.orderNow} startIcon={<FlashOn />} onClick={orderNow}>

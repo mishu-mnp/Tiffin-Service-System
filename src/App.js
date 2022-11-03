@@ -11,6 +11,8 @@ import {
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Tiffin from './components/Tiffin/Tiffin';
+import MyOrders from './components/MyOrders/MyOrders';
+import Cart from './components/Cart/Cart';
 
 
 
@@ -30,6 +32,16 @@ function App() {
               <TiffinAvailable />
             </>}
           >
+          </Route>
+          <Route path='/myorders' element={<>
+            <Header />
+            <MyOrders />
+          </>}>
+          </Route>
+          <Route path='/cart' element={<>
+            <Header />
+            <Cart />
+          </>}>
           </Route>
           <Route path='/register' element={<>
             <Header />

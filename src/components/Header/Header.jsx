@@ -1,7 +1,9 @@
 import React from 'react'
 import { headerStyles } from '../style'
-import { Link, IconButton, styled, Badge } from '@mui/material';
+import { IconButton, styled, Badge } from '@mui/material';
 import { ShoppingCart } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -15,7 +17,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const Header = () => {
   const classes = headerStyles();
 
-
+  const items = useSelector((state) => state.cart.tiffins.length);
+  console.log("Total Items", items);
 
   return (
     <div className={classes.Header}>
@@ -23,13 +26,16 @@ const Header = () => {
         <div className="left">
           <div className={classes.nav_menu}>
             <div className={classes.nav_item}>
-              <Link href='/' className={classes.link}>Home</Link>
+              <Link to='/' className={classes.link}>Home</Link>
             </div>
             <div className={classes.nav_item}>
-              <Link href='/about' className={classes.link}>About</Link>
+              <Link to='/myorders' className={classes.link}>MyOrders</Link>
             </div>
             <div className={classes.nav_item}>
-              <Link href='/contact' className={classes.link}>Contact</Link>
+              <Link to='/about' className={classes.link}>About</Link>
+            </div>
+            <div className={classes.nav_item}>
+              <Link to='/contact' className={classes.link}>Contact</Link>
             </div>
           </div>
         </div>
@@ -38,17 +44,18 @@ const Header = () => {
       <div className="right">
         <div className={classes.nav_menu}>
           <div className={classes.nav_item}>
-            <Link href='/login' className={classes.link}>Login</Link>
+            <Link to='/login' className={classes.link}>Login</Link>
           </div>
           <div className={classes.nav_item}>
-            <Link href='/register' className={classes.link}>Register</Link>
+            <Link to='/register' className={classes.link}>Register</Link>
           </div>
           <IconButton aria-label="cart">
-            <StyledBadge badgeContent={4} color="warning">
-              <ShoppingCart sx={{ color: 'white' }} />
+            <StyledBadge badgeContent={items} color="warning">
+              <Link to='/cart'>
+                <ShoppingCart sx={{ color: 'white' }} />
+              </Link>
             </StyledBadge>
           </IconButton>
-
         </div>
       </div>
 

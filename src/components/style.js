@@ -238,3 +238,36 @@ export const tiffinStyles = makeStyles({
         margin: '1rem 0'
     }
 })
+
+
+export const myOrderStyle = makeStyles({
+    orderContainer: {
+        border: '2px solid purple',
+        margin: '1rem 0',
+        padding: '1rem'
+    },
+    title: {
+        marginBottom: '10px'
+    },
+    tiffinOrder: {
+        border: '2px solid red',
+        width: '450px',
+        height: '150px'
+    }
+})
+
+export const cartStyle = makeStyles({
+    cartContainer: {
+        border: '2px solid purple',
+        margin: '1rem 0',
+        padding: '1rem'
+    },
+    title: {
+        marginBottom: '10px'
+    },
+    tiffinCart: {
+        border: '2px solid red',
+        width: '600px',
+        height: '200px'
+    }
+})
