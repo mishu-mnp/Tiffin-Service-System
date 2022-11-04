@@ -23,9 +23,7 @@ const TiffinAvailable = () => {
                             <CurrencyRupee />
                             <span className={classes.tiffinPrice}>{tiffin.price}</span>
                             {/* <Button variant="contained" startIcon={<Visibility />} href={`/view?${tiffin.id}`}>View</Button> */}
-                            <li>
-                                <Link to={`/view/${tiffin.id}`}>View</Link>
-                            </li>
+                            <Link to={`/view/${tiffin.id}`} className={classes.viewBtn}>View</Link>
                         </Typography>
                     </div>
                 ))}

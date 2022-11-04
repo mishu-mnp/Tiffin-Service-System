@@ -8,7 +8,8 @@ export const headerStyles = makeStyles({
         position: 'fixed',
         width: '100%',
         zIndex: '1000',
-        top: 0
+        top: 0,
+        marginBottom: '2rem'
     },
     link: {
         textDecoration: 'none !important',
@@ -154,6 +155,15 @@ export const tiffinAvailableStyles = makeStyles({
         height: '150px',
         width: '200px',
         borderRadius: '50%',
+    },
+    viewBtn: {
+        textDecoration: 'none',
+        backgroundColor: '#47e647',
+        padding: '5px 9px',
+        border: '1px solid greenyellow',
+        borderRadius: '10px',
+        width: '50px',
+        color: 'black',
     }
 })
 
@@ -278,4 +288,69 @@ export const cartStyle = makeStyles({
         backgroundColor: "#fb641b !important",
         borderRadius: '15px !important'
     },
+})
+
+
+export const aboutStyle = makeStyles({
+    about: {
+        marginTop: '4.7rem',
+
+    },
+    container: {
+        // border: '2px solid red',
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        // padding: '1rem',
+        height: '88vh',
+        backgroundColor: '#233c7b',
+        color: '#fbfeff'
+    },
+    left: {
+        // border: '1px solid purple',
+        width: '40%',
+        // padding: '6px',
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '1rem 0  1rem 3rem',
+        height: '80%'
+    },
+    right: {
+        // border: '1px solid orange',
+        width: '40%',
+        // padding: '8px',
+        height: '50vh'
+
+    },
+    title: {
+        fontSize: '3rem',
+        fontWeight: '600',
+        borderBottom: '4px solid rgb(234 142 48 / 1)',
+        width: '12rem',
+        paddingBottom: '11px',
+    },
+    aboutContent: {
+        lineHeight: '1.5rem',
+        fontSize: '1rem',
+        wordSpacing: '5px',
+        width: '80%',
+        letterSpacing: '1.5px',
+    },
+    aboutImg: {
+        maxWidth: '100%',
+        height: '470px',
+        width: '600px',
+        borderTopLeftRadius: '200px',
+        // borderBottomLeftRadius: '12px',
+        position: 'absolute',
+        right: '0',
+        top: '5rem',
+    }
+})
+
+
+export const contactStyle = makeStyles({
+    contact: {
+        marginTop: '6rem',
+    }
 })

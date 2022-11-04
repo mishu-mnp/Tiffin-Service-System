@@ -13,6 +13,8 @@ import Login from './components/Login/Login';
 import Tiffin from './components/Tiffin/Tiffin';
 import MyOrders from './components/MyOrders/MyOrders';
 import Cart from './components/Cart/Cart';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 
 
 
@@ -36,6 +38,16 @@ function App() {
           <Route path='/myorders' element={<>
             <Header />
             <MyOrders />
+          </>}>
+          </Route>
+          <Route path='/about' element={<>
+            <Header />
+            <About />
+          </>}>
+          </Route>
+          <Route path='/contact' element={<>
+            <Header />
+            <Contact />
           </>}>
           </Route>
           <Route path='/cart' element={<>
