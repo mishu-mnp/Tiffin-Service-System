@@ -249,7 +249,7 @@ export const tiffinStyles = makeStyles({
 
 export const myOrderStyle = makeStyles({
     orderContainer: {
-        border: '2px solid purple',
+        // border: '2px solid purple',
         margin: '6rem 0 1rem 0',
         padding: '1rem'
     },
@@ -257,7 +257,7 @@ export const myOrderStyle = makeStyles({
         marginBottom: '10px'
     },
     tiffinOrder: {
-        border: '2px solid red',
+        // border: '2px solid red',
         width: '600px',
         height: '200px'
     }
@@ -265,7 +265,7 @@ export const myOrderStyle = makeStyles({
 
 export const cartStyle = makeStyles({
     cartContainer: {
-        border: '2px solid purple',
+        // border: '2px solid purple',
         margin: '6rem 0 1rem 0',
         padding: '1rem'
     },
@@ -273,7 +273,7 @@ export const cartStyle = makeStyles({
         marginBottom: '10px'
     },
     tiffinCart: {
-        border: '2px solid red',
+        // border: '2px solid red',
         width: '600px',
         // height: '200px'
     },
@@ -351,6 +351,43 @@ export const aboutStyle = makeStyles({
 
 export const contactStyle = makeStyles({
     contact: {
-        marginTop: '6rem',
+        marginTop: '4.8rem',
+        height: '100%',
+    },
+    title: {
+        fontSize: '3rem',
+        lineHeight: 1,
+        color: "rgb(35 60 123/1)",
+    },
+    contactImg: {
+        width: '100%',
+        height: '400px'
+    },
+    container: {
+        backgroundColor: 'blanchedalmond',
+        paddingBottom: '3rem'
+    },
+    top: {
+
+    },
+    bottom: {
+        height: '100%',
+        width: '50% !important',
+        textAlign: 'center',
+
+    },
+    card: {
+
+    },
+    cardTitle: {
+        fontSize: '2.25rem !important',
+        color: "rgb(35 60 123/1)",
+        fontWeight: '600 !important',
+        lineHeight: '2.5rem !important'
+    },
+    cardText: {
+        margin: '3rem 0 !important',
+
     }
+
 })
