@@ -96,6 +96,7 @@ const Tiffin = () => {
     // order now button
     const dispatch = useDispatch();
     const [orderData, setOrderData] = useState({});
+    const [cartData, setCartData] = useState({});
 
     const orderNow = () => {
         let data = {
@@ -131,9 +132,11 @@ const Tiffin = () => {
         }
 
         setOrderData(cartData)
-
+        setCartData(cartData)
         dispatch(addToCart(cartData))
     }
+
+    console.log("Cart Data ", cartData)
 
     return (
         <div className='Tiffin'>

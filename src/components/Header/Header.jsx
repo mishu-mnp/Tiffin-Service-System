@@ -1,6 +1,6 @@
 import React from 'react'
 import { headerStyles } from '../style'
-import { IconButton, styled, Badge } from '@mui/material';
+import { IconButton, styled, Badge, Avatar } from '@mui/material';
 import { ShoppingCart } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -46,9 +46,10 @@ const Header = () => {
           <div className={classes.nav_item}>
             <Link to='/login' className={classes.link}>Login</Link>
           </div>
-          <div className={classes.nav_item}>
+          {/* <div className={classes.nav_item}>
             <Link to='/register' className={classes.link}>Register</Link>
-          </div>
+          </div> */}
+          <Avatar sx={{ bgcolor: 'purple' }}>{"vaibhav"[0].toUpperCase() + "mishra"[0].toUpperCase()}</Avatar>
           <IconButton aria-label="cart">
             <StyledBadge badgeContent={items} color="warning">
               <Link to='/cart'>
