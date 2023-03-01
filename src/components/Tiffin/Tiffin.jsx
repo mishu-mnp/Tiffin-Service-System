@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { addToOrder } from '../../redux/orderSlice';
+import axios from 'axios';
 
 const Tiffin = () => {
     const classes = tiffinStyles();
@@ -118,7 +119,13 @@ const Tiffin = () => {
 
     console.log(orderData);
 
-    const addCart = () => {
+    const baseURL = 'http://localhost:5000'
+
+    const addCart = async () => {
+        const token = localStorage.getItem("token")
+        if (!token) {
+            return alert("Authenticate First")
+        }
         let cartData = {
             tiffinId: id,
             desc: tfData.desc,
@@ -133,6 +140,18 @@ const Tiffin = () => {
 
         setOrderData(cartData)
         setCartData(cartData)
+
+        const userData = localStorage.getItem("user")
+        const userID = JSON.parse(userData)._id
+        console.log("User >>> ", userID)
+        console.log("Data sending >>> ", { ...cartData, userID });
+
+        await axios.post(`${baseURL}/cart/add`, { ...cartData, userID }).then((res) => {
+            console.log(res.data)
+        }).catch(err => {
+            return alert(err.message)
+        })
+
         dispatch(addToCart(cartData))
     }
 
