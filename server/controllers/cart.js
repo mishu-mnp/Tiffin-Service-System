@@ -1,6 +1,21 @@
 import Cart from '../models/cart.js'
 
 
+// get tiffins by userID
+export const getTiffin = async (req, res) => {
+    try {
+        const userID = req.params.id;
+
+        const tiffins = await Cart.find({ userID });
+
+        res.status(200).send(tiffins)
+
+    } catch (error) {
+        res.status(400).send(err.message)
+    }
+}
+
+
 // add tiffin
 export const addTiffin = async (req, res) => {
     const data = req.body;

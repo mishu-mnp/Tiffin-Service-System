@@ -1,8 +1,9 @@
 import express from 'express';
-import { addTiffin, removeTiffin } from '../controllers/cart.js';
+import { addTiffin, getTiffin, removeTiffin } from '../controllers/cart.js';
 
 const router = express.Router();
 
+router.get('/items/:id', getTiffin);
 router.post('/add', addTiffin);
 router.delete('/remove', removeTiffin);
 

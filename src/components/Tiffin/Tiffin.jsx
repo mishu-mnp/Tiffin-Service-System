@@ -126,12 +126,17 @@ const Tiffin = () => {
         if (!token) {
             return alert("Authenticate First")
         }
+        const userData = localStorage.getItem("user")
+        const userID = JSON.parse(userData)._id
+        console.log("User >>> ", userID)
+
         let cartData = {
-            tiffinId: id,
+            tiffinID: id,
+            userID: userID,
             desc: tfData.desc,
             price: tfData.price,
-            addr: address,
-            qty: quantity,
+            address: address,
+            quantity: quantity,
             shift: timeShift,
             fixed: checked,
             days: daysCount,
@@ -141,10 +146,9 @@ const Tiffin = () => {
         setOrderData(cartData)
         setCartData(cartData)
 
-        const userData = localStorage.getItem("user")
-        const userID = JSON.parse(userData)._id
+
         console.log("User >>> ", userID)
-        console.log("Data sending >>> ", { ...cartData, userID });
+        console.log("Data sending >>> ", cartData);
 
         await axios.post(`${baseURL}/cart/add`, { ...cartData, userID }).then((res) => {
             console.log(res.data)

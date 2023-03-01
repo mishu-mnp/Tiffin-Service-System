@@ -1,8 +1,9 @@
 import { Box, Button, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { Container } from '@mui/system'
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import tiffin8 from '../../assets/tiffin8.jpg';
+// import tiffin8 from '../../assets/tiffin8.jpg';
 import { removeFromCart } from '../../redux/cartSlice';
 import { addToOrder } from '../../redux/orderSlice';
 import { cartStyle } from '../style'
@@ -27,6 +28,26 @@ const Cart = () => {
         console.log("TF Data >>> ", tfData)
         console.log("ID >>> ", id)
     }
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    // const userID = user._id;
+    // console.log("Useris ", user);
+    console.log("User id is ", user._id);
+
+
+    // fetching cart items
+    const baseURL = 'http://localhost:5000'
+
+
+    const getCartItems = async () => {
+        console.log("getting cart items")
+
+        // await axios.get(`${baseURL}/`)
+    }
+
+    useEffect(() => {
+        getCartItems()
+    }, [])
     return (
         <div className='cart'>
             <Container className={classes.cartContainer}>

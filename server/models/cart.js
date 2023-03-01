@@ -22,7 +22,10 @@ const cartSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    shift: String
+    shift: {
+        lunch: Boolean,
+        dinner: Boolean
+    }
 })
 
 
