@@ -3,6 +3,7 @@ import { Container } from '@mui/system'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 // import tiffin8 from '../../assets/tiffin8.jpg';
 import { removeFromCart, updateQuantity } from '../../redux/cartSlice';
 import { addToOrder } from '../../redux/orderSlice';
@@ -21,14 +22,17 @@ const Cart = () => {
 
 
 
+    const navigate = useNavigate();
 
-    const orderTiffin = (id) => {
-        let tfData = tiffins.find(tf => tf.tiffinId === id)
-        dispatch(addToOrder(tfData))
-        removeItem(id);
-        console.log("TF Data >>> ", tfData)
-        console.log("ID >>> ", id)
-    }
+    // const orderTiffin = (id) => {
+    //     // let tfData = tiffins.find(tf => tf.tiffinId === id)
+    //     // dispatch(addToOrder(tfData))
+    //     // removeItem(id);
+
+    //     navigate('/order/');
+    //     // console.log("TF Data >>> ", tfData)
+    //     console.log("ID >>> ", id)
+    // }
 
     const user = JSON.parse(localStorage.getItem("user"));
     // const userID = user._id;
@@ -36,8 +40,8 @@ const Cart = () => {
     console.log("User id is ", user._id);
 
 
-    // fetching cart items
 
+    // fetching cart items
     const [tiffins, setTiffins] = useState([]);
 
     const getCartItems = async () => {
@@ -110,8 +114,8 @@ const Cart = () => {
                                         <Button variant="contained" className={classes.addToCart} onClick={() => removeItem(tiffin._id)}>
                                             Remove
                                         </Button>
-                                        <Button variant="contained" className={classes.orderNow} onClick={() => orderTiffin(tiffin.tiffinId)}>
-                                            Order Now
+                                        <Button variant="contained" className={classes.orderNow}>
+                                            <Link to={`/order/${tiffin._id}`}>Order Now</Link>
                                         </Button>
                                     </Stack>
                                 </CardContent>

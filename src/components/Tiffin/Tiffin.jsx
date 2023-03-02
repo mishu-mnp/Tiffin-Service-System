@@ -113,7 +113,6 @@ const Tiffin = () => {
         }
 
         setOrderData(data);
-
         dispatch(addToOrder(data))
     }
 

@@ -66,7 +66,7 @@ function App() {
             <Login />
           </>}>
           </Route>
-          <Route path='/order' element={<>
+          <Route path='/order/:id' element={<>
             <Header />
             <OrderNow />
           </>}>

@@ -394,8 +394,39 @@ export const contactStyle = makeStyles({
 
 
 export const orderNowStyle = makeStyles({
+    orderNow: {
+        marginTop: '4.8rem',
+        height: '100%'
+    },
     title: {
         fontSize: '2rem',
-        color: 'grey'
+        color: 'grey',
+        padding: '1rem'
+    },
+    container: {
+        border: '2px solid red',
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '1rem',
+        height: '100%'
+    },
+    subtitle: {
+        fontSize: '1.5rem !important'
+    },
+    left: {
+        border: '1px dashed purple',
+        flex: 3,
+        height: '100%',
+        padding: '8px'
+    },
+    right: {
+        border: '1px dashed green',
+        flex: 2,
+        padding: '8px'
+    },
+    rightBtn: {
+        position: 'absolute !important',
+        right: '50px',
+        bottom: '45%'
     }
 })

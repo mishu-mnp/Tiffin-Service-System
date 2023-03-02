@@ -15,6 +15,20 @@ export const getTiffin = async (req, res) => {
     }
 }
 
+// get tiffin by id
+export const getTiffinById = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const tiffin = await Cart.findById(id);
+
+        res.status(200).send(tiffin)
+
+    } catch (error) {
+        res.status(400).send(err.message)
+    }
+}
+
 
 // add tiffin
 export const addTiffin = async (req, res) => {
