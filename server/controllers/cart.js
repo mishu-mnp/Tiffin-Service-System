@@ -33,14 +33,15 @@ export const addTiffin = async (req, res) => {
 // remove tiffin
 export const removeTiffin = async (req, res) => {
 
-    const { tiffinID, userID } = req.body;
+    const id = req.params.id;
 
     try {
-        const tiffin = await Cart.findOneAndDelete({ id: tiffinID, user: userID })
+        const tiffin = await Cart.findByIdAndDelete(id)
 
         if (!tiffin) {
-            res.status(404).send({ mssg: 'Tiffin not found' })
+            return res.status(404).send({ mssg: 'Tiffin not found' })
         }
+
         res.send(tiffin)
 
     } catch (error) {

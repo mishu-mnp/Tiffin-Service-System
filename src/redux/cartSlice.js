@@ -16,7 +16,8 @@ const demoData = {
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-        tiffins: []
+        tiffins: [],
+        quantity: 0
     },
     reducers: {
         addToCart: (state, action) => {
@@ -25,12 +26,14 @@ const cartSlice = createSlice({
         removeFromCart: (state, action) => {
             let newTiffins = state.tiffins.filter(tf => tf.tiffinId !== action.payload)
             state.tiffins = newTiffins
-
+        },
+        updateQuantity: (state, action) => {
+            state.quantity = action.payload
         }
     }
 })
 
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;

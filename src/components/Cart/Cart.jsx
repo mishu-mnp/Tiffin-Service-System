@@ -1,25 +1,26 @@
 import { Box, Button, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { Container } from '@mui/system'
 import axios from 'axios';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 // import tiffin8 from '../../assets/tiffin8.jpg';
-import { removeFromCart } from '../../redux/cartSlice';
+import { removeFromCart, updateQuantity } from '../../redux/cartSlice';
 import { addToOrder } from '../../redux/orderSlice';
 import { cartStyle } from '../style'
 
 const Cart = () => {
     const classes = cartStyle();
 
-    const tiffins = useSelector((state) => state.cart.tiffins);
-    console.log("Tiffins >>> ", tiffins);
+    // const tiffins = useSelector((state) => state.cart.tiffins);
+    // console.log("Tiffins >>> ", tiffins);
+
+    const baseURL = 'http://localhost:5000'
 
     // remove item from cart
     const dispatch = useDispatch();
-    const removeItem = (id) => {
-        dispatch(removeFromCart(id))
-        console.log('ID >>> ', id)
-    }
+
+
+
 
     const orderTiffin = (id) => {
         let tfData = tiffins.find(tf => tf.tiffinId === id)
@@ -36,18 +37,40 @@ const Cart = () => {
 
 
     // fetching cart items
-    const baseURL = 'http://localhost:5000'
 
+    const [tiffins, setTiffins] = useState([]);
 
     const getCartItems = async () => {
         console.log("getting cart items")
 
-        // await axios.get(`${baseURL}/`)
+        await axios.get(`${baseURL}/cart/items/${user._id}`).then((res) => {
+            console.log("Tiffins ", res.data)
+            setTiffins(res.data)
+            dispatch(updateQuantity(res.data.length))
+        }).catch(err => {
+            alert(err.message)
+        })
+    }
+
+    // remove tiffins from Cart
+    const removeItem = async (id) => {
+        // dispatch(removeFromCart(id))
+        // console.log('ID >>> ', id)
+
+        await axios.delete(`${baseURL}/cart/remove/${id}`).then(res => {
+            console.log(res.data);
+            setTiffins(tiffins.filter(tiffin => tiffin._id != id))
+            alert("Item Deleted Successfully")
+        }).catch(err => {
+            alert(err.message)
+        })
+
     }
 
     useEffect(() => {
         getCartItems()
     }, [])
+
     return (
         <div className='cart'>
             <Container className={classes.cartContainer}>
@@ -68,7 +91,7 @@ const Cart = () => {
                                         Desc: {tiffin.desc}
                                     </Typography>
                                     <Typography component='p'>
-                                        Qty: {tiffin.qty}
+                                        Qty: {tiffin.quantity}
                                     </Typography>
                                     {tiffin.fixed && (
                                         <>
@@ -84,7 +107,7 @@ const Cart = () => {
                                         Price: {tiffin.price}
                                     </Typography>
                                     <Stack direction="row" spacing={2} className={classes.tiffinBtn}>
-                                        <Button variant="contained" className={classes.addToCart} onClick={() => removeItem(tiffin.tiffinId)}>
+                                        <Button variant="contained" className={classes.addToCart} onClick={() => removeItem(tiffin._id)}>
                                             Remove
                                         </Button>
                                         <Button variant="contained" className={classes.orderNow} onClick={() => orderTiffin(tiffin.tiffinId)}>

@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get('/items/:id', getTiffin);
 router.post('/add', addTiffin);
-router.delete('/remove', removeTiffin);
+router.delete('/remove/:id', removeTiffin);
 
 export default router;

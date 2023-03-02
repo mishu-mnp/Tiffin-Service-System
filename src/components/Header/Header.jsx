@@ -21,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const Header = () => {
   const classes = headerStyles();
 
-  const items = useSelector((state) => state.cart.tiffins.length);
+  const items = useSelector((state) => state.cart.quantity);
   console.log("Total Items", items);
 
 
@@ -94,8 +94,6 @@ const Header = () => {
           </IconButton>
         </div>
       </div>
-
-
     </div>
   )
 }

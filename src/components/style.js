@@ -391,3 +391,11 @@ export const contactStyle = makeStyles({
     }
 
 })
+
+
+export const orderNowStyle = makeStyles({
+    title: {
+        fontSize: '2rem',
+        color: 'grey'
+    }
+})

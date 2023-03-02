@@ -15,6 +15,7 @@ import MyOrders from './components/MyOrders/MyOrders';
 import Cart from './components/Cart/Cart';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+import OrderNow from './components/OrderNow/OrderNow';
 
 
 
@@ -63,6 +64,11 @@ function App() {
           <Route path='/login' element={<>
             <Header />
             <Login />
+          </>}>
+          </Route>
+          <Route path='/order' element={<>
+            <Header />
+            <OrderNow />
           </>}>
           </Route>
           <Route exact path='/view/:id' element={<>
