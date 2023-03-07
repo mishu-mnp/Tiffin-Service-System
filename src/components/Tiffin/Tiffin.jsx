@@ -234,8 +234,8 @@ const Tiffin = () => {
                     {/* address textfield */}
                     <div className={classes.addressBox}>
                         <TextField
-                            id="address"
-                            label="Address"
+                            id="message"
+                            label="Message"
                             multiline
                             rows={4}
                             value={address}
@@ -246,9 +246,9 @@ const Tiffin = () => {
                         <Button variant="contained" className={classes.addToCart} startIcon={<ShoppingCart />} onClick={addCart}>
                             Add to Cart
                         </Button>
-                        <Button variant="contained" className={classes.orderNow} startIcon={<FlashOn />} onClick={orderNow}>
+                        {/* <Button variant="contained" className={classes.orderNow} startIcon={<FlashOn />} onClick={orderNow}>
                             Order Now
-                        </Button>
+                        </Button> */}
                     </Stack>
                 </div>
             </div>

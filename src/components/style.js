@@ -404,7 +404,7 @@ export const orderNowStyle = makeStyles({
         padding: '1rem'
     },
     container: {
-        border: '2px solid red',
+        // border: '2px solid red',
         display: 'flex',
         justifyContent: 'space-between',
         padding: '1rem',
@@ -414,13 +414,13 @@ export const orderNowStyle = makeStyles({
         fontSize: '1.5rem !important'
     },
     left: {
-        border: '1px dashed purple',
+        // border: '1px dashed purple',
         flex: 3,
         height: '100%',
         padding: '8px'
     },
     right: {
-        border: '1px dashed green',
+        // border: '1px dashed green',
         flex: 2,
         padding: '8px'
     },
